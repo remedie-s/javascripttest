@@ -19,17 +19,17 @@
 // PI=6666;
 
 console.log('\n\n');
-var a=1;
-function test(){
-    if(true){
-        var a=2;
-        var b=2;
-        let c=3;
+var a = 1;
+function test() {
+    if (true) {
+        var a = 2;
+        var b = 2;
+        let c = 3;
     }
     // 함수 안에만 있으면 var는 다 통용됨
     // let 는 블록 스코프여서  {} 넘어가면 오류
-    console.log('a=',a);
-    console.log('b=',b);
+    console.log('a=', a);
+    console.log('b=', b);
     //에러가 발생함, 영역을 벗어남
     // console.log('c=',c);
 }
@@ -38,7 +38,7 @@ function test(){
 //  ReferenceError: b is not defined
 // console.log('함수 밖에서 b=',b);
 
-function test2(){
+function test2() {
     //  같은 이름의 변수를 선언은 가능함
     //  마지막에 할당된 값으로 설정
     var name = 'A';
@@ -52,7 +52,7 @@ function test2(){
 }
 // test2();
 
-let a1=1, b1=2, c1;
+let a1 = 1, b1 = 2, c1;
 // 1 2 undefined 선언안되면 x
 // console.log(a1,b1,c1);
 
@@ -63,23 +63,23 @@ let a1=1, b1=2, c1;
 // 익명함수(이름 없음)
 // 주로 1회성, 특정 변수의 값으로 설정 가능
 // 특정함수의 인자값 또는 콜백함수 역할로 주로 사용됨
-const noNameFunc=function (name='자바',year=2024){
-    console.log(name=`${name}`, year=`${year} 입니다.`);
+const noNameFunc = function (name = '자바', year = 2024) {
+    console.log(name = `${name}`, year = `${year} 입니다.`);
 }
 // noNameFunc();
 
 // 특정 함수의 안자값으로 익명함수 사용
-function noName(){
-    setTimeout(function(){
+function noName() {
+    setTimeout(function () {
         console.log('->')
-    },1000);
+    }, 1000);
 }
 // noName();
 
-function noName1(){
-    setTimeout(function(){
+function noName1() {
+    setTimeout(function () {
         console.log('1');
-    },2000);
+    }, 2000);
 }
 // noName1();
 
@@ -97,24 +97,63 @@ function getInfoArrow(name) {
 // getInfoArrow('sejong1');
 
 //화살표 함수로 변경
-const getInfoArrow1=function(name){
+const getInfoArrow1 = function (name) {
     console.log(`${name} ...!!!@@@`)
 }
 // getInfoArrow1('sejong2');
 
-const getInfoArrow2= name => console.log(`${name} ...!!!@@@`);
+const getInfoArrow2 = name => console.log(`${name} ...!!!@@@`);
 // getInfoArrow2('sejong3');
 
 // 파라미터가 2개 이상인 경우의 화살표 함수
-function getInfoArrow3(name,age){
+function getInfoArrow3(name, age) {
     return `${name} ${age} ....!@!@`;
 }
-console.log(getInfoArrow3('월요일',30));
+// console.log(getInfoArrow3('월요일',30));
 
-const getInfoArrow4=function(name,age){
+const getInfoArrow4 = function (name, age) {
     return `${name} ${age} ....!@!@`;
 }
-console.log(getInfoArrow4('화요일',40));
+// console.log(getInfoArrow4('화요일',40));
 
-const getInfoArrow5=( name,age ) => `${name} ${age} ....!@!@`;
-console.log(getInfoArrow5('수요일',50));
+const getInfoArrow5 = (name, age) => `${name} ${age} ....!@!@`;
+// console.log(getInfoArrow5('수요일',50));
+
+// 화살표 함수 내에서 this-> 함수 자체가 아닌 속해있는
+// 부모 (상위) 객체를 가르킴
+// 애초루 함수 this 사용
+
+var obj = {
+    name: '월요일',
+    load: function () {
+        setTimeout(function () {
+            console.log('=>', this.name);// undefind error => 애로우 함수써야함
+            console.log('=>', obj.name);
+        }, 3000);
+    }
+}
+// obj.load();
+//this 예약어는 애로우함수를 써야한다!
+var obj2 = {
+    name: '화요일',
+    load: function () {
+        setTimeout(() => console.log('=>', this.name), 3000);
+    }
+}
+// obj2.load();
+var obj3 = {
+    name: '수요일',
+    load() {
+        setTimeout(() => console.log('=>', this.name), 3000);
+    }
+}
+// obj3.load();
+
+var obj4 = {
+    name: '목요일',
+    load: ()=> {
+        setTimeout(()=> 
+            console.log('=>', this.name), 3000);
+    }
+}
+obj4.load();
