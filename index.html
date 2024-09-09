@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script> 
+        function test2() {
+            //  같은 이름의 변수를 선언은 가능함
+            //  마지막에 할당된 값으로 설정
+            var name = 'A';
+            var name = 'B';
+            console.log(name);
+
+            let name1 = 'A';
+            // Identifier 'name1' has already been declared // let은 중복 설정안됨
+            // let name1 = 'B';
+            console.log(name1);
+            alert(name1);
+        }
+        </script>
 </head>
-<body>
-    
+
+
+11111111111111<br>
+<input type="button" value="클릭해주세요" onclick="test2()">
 </body>
+
 </html>
