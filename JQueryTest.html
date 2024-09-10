@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="test"></div>
+    <div id="test1"></div>
+    <input type="text" id="nick">
+    <input type="button" value="change value">
+
+
+    <script>
+        $(document).ready(function(){
+            console.log("ready");
+            //#은 아이디를 찾음
+            $("#test").text("111111");//둘다 text를 입력 (div 태그엔 val을 씀)
+            $("#nick").val("11111111");
+            $("#test1").html("<h2>벌써 7교시 </h2>")
+
+            $("input[type=button]").on("click",function(){
+                $("#test").text("내용이 바뀝니다.")
+            });
+
+            $.ajax();
+            
+        });//바디태그를 다읽으면  익명함수가 작동함
+        
+    </script>
+        <div>aaaa</div>
+</body>
+</html>

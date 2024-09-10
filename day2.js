@@ -97,17 +97,35 @@ const funcB = function () {
 // console.log(seq());
 // console.log(seq());
 
-function foo(x) {
-    return function (y) {
-        console.log(`${x} : ${y}`);
-    }
-}
-const bar1 = foo("과목");
-bar1("국어");
-bar1("영어");
-bar1("수학");
+// function foo(x) {
+//     return function (y) {
+//         console.log(`${x} : ${y}`);
+//     }
+// }
+// const bar1 = foo("과목");
+// bar1("국어");
+// bar1("영어");
+// bar1("수학");
 
-const bar2 = foo("성적");
-bar2(100);
-bar2(90);
-bar2(80);
+// const bar2 = foo("성적");
+// bar2(100);
+// bar2(90);
+// bar2(80);
+
+// (function hello(){
+//     console.log('IIFE');
+// })();
+
+// (function(){
+//     //내부에서 정의된 변수는 외부에서 접근불가
+//     var aName = "Kate";
+//     console.log(aName);
+// })();
+// console.log(aName);
+
+const result = (function(){
+    let aName ="Kate";
+    console.log(aName);
+    return aName;
+})();
+console.log(result);
