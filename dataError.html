@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="list"></div>
+
+    <script>
+
+        const data = [
+            { 'name': 'A', 'score': 77 },
+            { 'name': 'B', 'score': 88 },
+            { 'name': 'C', 'score': 66 },
+            { 'name': 'D', 'score': 55 },
+        ]
+
+        function check(data) {
+            const result = [];
+            // const person={};
+            data.forEach(value => {
+                const person = {};//삽입
+                person['name'] = value.name;
+                person['score'] = value.score;
+                person['pass'] = value.score > 60 ? true : false;
+                result.push(person);
+            })
+            return result;
+        }
+
+        function show(data) {
+            let code = '<ol>';
+            data.forEach(value => {
+                code += `<li>${value.name}, ${value.score}, ${value.pass}</li>`;
+            });
+            code += '</ol>'
+            document.querySelector('#list').innerHTML = code;
+        }
+        const d = check(data);
+        show(d);
+
+    </script>
+</body>
+
+</html>

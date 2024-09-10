@@ -156,4 +156,27 @@ var obj4 = {
             console.log('=>', this.name), 3000);
     }
 }
-obj4.load();
+// obj4.load();
+
+function test(nick){
+    nick = 'tom';
+    console.log(nick)
+}
+
+const nick = 'john';
+// test(nick);
+// console.log(nick);
+
+function test1(nick,age){
+    nick = 'tom';
+    console.log(nick+' '+ age);
+}
+// test1('john');
+// test1('john',200);
+
+function changeNameByObject(obj){
+    obj.name='tom';
+}
+const user ={name:'john'}
+changeNameByObject(user);
+console.log(user);
