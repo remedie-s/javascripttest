@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    <div id="target"></div>
+
+    <input type="button" id="btn" value="click">
+    <script>
+        $(function () {
+            $("#btn").on("click",function(){
+                $.ajax({
+                    url : "localhost:5051/json",
+                    type : "POST",
+                    async : true,
+                    dataType : "json",
+                    data : {
+                        today : "수요일",
+                        human : 4
+                    },
+                    complete:function(data){
+                        showHtml(data);
+                    },
+                    error : function(data){
+                        alert("error html = "+data.statusText);
+                    }
+                });
+            })
+        });
+    </script>
+</body>
+
+</html>
