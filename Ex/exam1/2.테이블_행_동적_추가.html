@@ -13,7 +13,8 @@
            				 +"<td>"+ content+"</td>"
            				 +"<td>"+ owner+"</td></tr>";
            				
-			$(result).appendTo("table");
+			$(result).appendTo("table");// result를 table의 가장 뒤에 붙임
+			// $("table").append(result);
 			$("input[type=text]").val("");
 			$("input[name=title]").focus();			
 		});
@@ -22,7 +23,7 @@
 </head>
 <body>
 	<fieldset>
-		<legend>입력하시오</legend>
+		<!-- <legend>입력하시오</legend>// <fieldset> 요소의 캡션(caption)을 정의함. -->
 		<label for="title">제목 : </label>
 		<input type="text" name="title" id="title"/><br />
 		<label for="content">내용 : </label>

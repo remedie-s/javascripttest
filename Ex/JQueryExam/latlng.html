@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script>
+	function getAddress() {
+		var search = document.getElementsByName("search")[0].value;
+		var url = "http://maps.googleapis.com/maps/api/geocode/json";
+		$.ajax({
+			url : url,
+			type : "get",
+			data : {address : search, sensor : "false"},
+			success : function(result) {
+				alert(result);
+				alert(result.results[0].formatted_address);
+			}
+		});
+	}
+</script>
+</head>
+<body>
+	<input type="text" name="search" />
+	<input type="button" name="btn" value="주소검색" onclick="getAddress()" />
+	<div id="address"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

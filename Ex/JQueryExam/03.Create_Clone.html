@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Create Clone</title>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+/**
+ * 대상 : div
+ * 기능 : ID가 target인 div를 복사한 후 
+          div 뒤쪽으로 추가 (after or insertAfter), clone() 사용
+ */
+	function run() {
+// 	 $("#target").clone().insertAfter("div");	 
+		// 아이디가 중복되므로 하나만 읽어옴
+// 		$("div").eq(0).clone().insertAfter($("div").last());
+//		$("div").eq(0).clone().insertAfter($("div:last"));
+//    first()를 해도 결과는 같음
+// 		$("div").eq(0).clone().insertBefore($("div").last());
+//		$("div").eq(0).clone().insertBefore($("div:last"));
+		$("div").eq(0).clone().appendTo($("body"));
+//		$("div").eq(0).clone().prependTo($("body"));
+//		append, prepend, after, before로 구현
+// 		$("div:last").before($("div:last").clone());
+	}
+</script>
+
+</head>
+
+<body>
+	<div id="target"
+		style="color: rgb(255, 255, 255); width: 180px; height: 100px; float: left; border: 1px solid rgb(34, 34, 34); background-color: rgb(34, 139, 34); margin: 10px; padding: 5px; background-position: initial initial; background-repeat: initial initial;">
+		div#target<br>
+		<br>
+		<br>
+		<span
+			style="color: rgb(255, 255, 255); background-color: rgb(255, 165, 0); margin: 10px; border: 1px solid rgb(34, 34, 34); padding: 5px; background-position: initial initial; background-repeat: initial initial;">span</span>
+	</div>
+	<input type="button" value="run" onclick="run()" />
+</body>
+</html>

@@ -1,20 +1,18 @@
 <html>
 <head>
 <title>Uncheck CheckBox</title>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
-	/**
-	 * 대상 : div 내부 CheckBox
-	 * 기능 : 체크해제
-	 * 함수 : removeAttr() or attr()
-	 */
+/**
+ * 대상 : div 내부 CheckBox
+ * 기능 : 모든 체크박스를 체크 해제 (removeAttr)
+ */
 	function run() {
-// 	 	 $("input[type=checkbox]").removeAttr("checked");
-// 		 2번째부터 실행안되는건 ..버그임...체크해보기
-// 		 $("input[type=checkbox]").attr("checked",false);
-		 $("input[type=checkbox]").prop("checked",false);
-//		 $(":checked").prop("checked", false);
-//	 	 $("input:checked").prop("checked", false)
+	 $("input[type=checkbox]").removeAttr("checked");
+//	 $("input[type=checkbox]").attr("checked",false);
+//	 $("input[type=checkbox]").prop("checked",false);
+//	 $(":checked").attr("checked", false);
+// 	 $("input:checked").attr("checked", false)
 	}
 </script>
 
