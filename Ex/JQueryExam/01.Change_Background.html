@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Change Background</title>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+/**
+ * 대상 : div
+ * 기능 : background를 yellow로 변경 (css)
+ * #아이디속성
+ * .클래스속성
+ *  태그[태그=1] 태그에서 태그가 1인것
+ *  아무것도 안붙으면 태그 전부다
+ *  태그 > 아무것도 안붙고 태그  > 태그일 경우 태그 바로 아래 있는 태그만
+ *  태그 태그 일경우 태그 아래에 있는 모든 태그
+ *  eq(n) <- n번째 속성값
+ * 	태그.prev() .next()  태그의 앞 뒤 태그 대상
+ */
+	function run() {
+// 	 $("#target").css("background","yellow");
+// 	 $("div").css("background","yellow");
+// 	 $("div[human=1]").css("background","yellow");
+// 	 $("body > div").css("background","yellow");
+// 	 $("body div").css("background","yellow");
+// 	 $("body").children().eq(0).css("background","yellow");
+	 $("input").prev().css("background","yellow");		
+	}
+</script>
+
+</head>
+
+<body>
+	<div id="target" human="1"
+		style="color: rgb(255, 255, 255); width: 150px; height: 100px; float: left; border: 1px solid rgb(34, 34, 34); background-color: rgb(34, 139, 34); margin: 10px; padding: 5px; background-position: initial initial; background-repeat: initial initial;">
+		#target<br />
+	</div>
+	<input type="button" value="run" onclick="run()" />
+</body>
+</html>
