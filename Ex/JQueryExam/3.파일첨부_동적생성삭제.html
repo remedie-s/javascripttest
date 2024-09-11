@@ -7,7 +7,8 @@
 		$("#delFile").hide();	
 	});
 	function fnAddFile(event) {
-		event.preventDefault();
+		// 이벤트를 멈춤
+		event.preventDefault();// stopPropagation(); - 이벤트의 전파를 막음 부모 이벤트작동을 막음
 		var addHtml = "<input type='file' name='file' /><br />";		
 		$(addHtml).appendTo("body");
 		$("#delFile").show();
@@ -30,7 +31,8 @@
 <body>
 	<input type="file" name="file" /> 
 	<a href="www.google.com" id="addFile" onclick="fnAddFile(event)">파일추가</a> 
-	<a href="#" id="delFile" onclick="fnDelFile(event)">삭제</a>
+	<a href="#" id="delFile" onclick="fnDelFile(event)">삭제</a> 
+	<!-- 하이퍼링크가 발동안하고 온클릭이벤트가 발동 -->
 	<br />
 	
 </body>

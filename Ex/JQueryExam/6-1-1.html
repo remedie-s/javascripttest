@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geocoding Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("input[type=button]").on("click", function() {
+                var address = $("input[name=address]").val();
+                var apiKey = "YOUR_API_KEY"; // Replace with your actual API key
+                $.ajax({
+                    url: "https://maps.googleapis.com/maps/api/geocode/json",
+                    type: "get",
+                    data: {
+                        address: address,
+                        key: apiKey
+                    },
+                    success: function(data) {
+                        var results = data.results;
+                        console.log(results.length);
+                        var html = "";
+                        html += "검색결과 : " + results.length + "건";
+                        for (var i = 0; i < results.length; i++) {
+                            var address_components = results[i].address_components;
+                            var postal_code = "";
+                            for (var j = 0; j < address_components.length; j++) {
+                                if (address_components[j].types.includes("postal_code")) {
+                                    postal_code = address_components[j].long_name;
+                                    break;
+                                }
+                            }
+                            var address = results[i].formatted_address;
+                            var latitude = results[i].geometry.location.lat;
+                            var longitude = results[i].geometry.location.lng;
+
+                            html += "<hr>";
+                            html += "우편번호 : " + postal_code;
+                            html += "<br>주소 : " + address;
+                            html += "<br>위도 : " + latitude;
+                            html += "<br>경도 : " + longitude;
+                        }
+                        $("#result").html(html);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text" name="address" value="광안리">
+    <input type="button" value="확인">
+    <div id="result"></div>
+</body>
+</html>
